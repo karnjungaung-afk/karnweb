@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>แนะนำตัวเอง</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: antiquewhite;
+            background-size: cover;
+            text-align: center;
+            color: rgb(177, 109, 21);
+        }
+        ul {
+            list-style-type: none;
+            margin-top: 0%;
+            padding-left: 0;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+        li {
+            float: left;
+        }
+        li button{
+            border-radius: 18px;
+            border: 2px solid #f5c680;
+            display: block;
+            color:#b48446;
+            text-align: center;
+            padding: 18px;
+            text-decoration: none;
+            border-collapse: collapse;
+            background-color: rgb(247, 217, 179);
+        }
+        li button:hover {
+            background-color: #dfc59f;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><button onclick="document.location='profile.html'">Profile</button></li>
+        <li><button onclick="document.location='listOfSkills.html'">Skill List</button></li>
+        <li><button onclick="document.location='activitySchedule.html'">Activity</button></li>
+        <li><a href="https://www.facebook.com/share/18q1AfHFmN/" target="_blank"><img src="img/f1.png" alt="facebook" style="width: 90px;"></a></li>
+    </ul>
+    <!-- แนะนำตัวเอง -->
+    <h1><strong style="font-size: 60px;">แนะนำตัวเอง</strong></h1>
+    <img src="img/karn.jpg" alt="karn picture" width="350" height="350" style="border-radius: 18px;">
+    <p id="b1">
+        นาย กานต์ จองอ่อง (กานต์)
+    </p>
+    <h2>วันเกิด</h2>
+    <p id = "b1">
+        29 ธันวาคม 2552
+    </p>
+    <h2>อายุ</h2>
+    <p id = "b1">
+        16 ปี
+    </p>
+    <h2>สถานศึกษาปัจจุบัน</h2>
+    <p id = "b1">วิทยาลัยเทคนิคเชียงใหม่</p>
+    <video width="500" height="320" controls muted style="border-radius: 17px;">
+        <source src="video/technic.mp4" type="video/mp4">
+    </video>
+    <h2>สิ่งที่ชอบ</h2>
+    <p id="b1">
+<br>ชอบต่อวงจร
+<br>ชอบหาความรู้ใหม่ๆ
+<br>ชอบเล่นดนตรี
+<br>ชอบเล่นเกม
+    </p>
+    <audio controls autoplay muted >
+        <source src="sound/sound1.mp3" type="audio/mp3">
+    </audio>
+</body>
+</html>

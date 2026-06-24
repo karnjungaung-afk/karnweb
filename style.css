@@ -1,0 +1,88 @@
+#b1{
+    font-size: 20px;
+    margin: 15px auto;
+    background-color: #ffffff; /* เปลี่ยนเป็นพื้นหลังสีขาว */
+    border: none; /* เอาเส้นขอบหนาๆ ออก */
+    border-radius: 20px; /* มนกำลังดี */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* ใส่เงานุ่มๆ */
+    transition: all 0.3s ease;
+    max-width: 400px;  /* บังคับให้กล่องกว้างไม่เกิน 600 พิกเซล (ปรับตัวเลขได้ตามชอบ) */
+    width: 90%;        /* ถ้าเปิดในมือถือ กล่องจะหดเหลือ 90% ของจอ ไม่หลุดขอบ */
+}
+#b1:hover{
+    transform: translateY(-3px); /* ลอยขึ้นตอนเมาส์ชี้ */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+h2{
+    font-size: 30px;
+}
+/* กล่องครอบตาราง */
+.schedule-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+/* หัวข้อ */
+.schedule-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.schedule-header h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: 600;
+}
+.schedule-header p {
+    margin: 5px 0 0 0;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+/* สไตล์ของตาราง */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+}
+/* หัวตาราง */
+th {
+    background-color: #ebbf61;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 16px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+/* แถวและเนื้อหา */
+td {
+    padding: 16px;
+    border-bottom: 1px solid #eeeeee;
+    color: #4a5568;
+    font-size: 15px;
+}
+/* สลับสีแถวให้ดูง่ายขึ้น */
+tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+/* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ */
+tbody tr:hover {
+    background-color: #edf2f7;
+    transition: background-color 0.2s ease;
+}
+/* สไตล์สำหรับคอลัมน์เวลา */
+.time-col {
+    font-weight: bold;
+    color: #ebbf61;
+    width: 20%;
+}
+/* สไตล์สำหรับคอลัมน์กิจกรรม */
+.activity-col {
+    font-weight: 300;
+    width: 15%;
+}
