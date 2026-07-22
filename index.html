@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แนะนำตัวเอง</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background-color: antiquewhite;
-            background-size: cover;
-            color: rgb(177, 109, 21);
-        }
-    </style>
 </head>
 <body>
     <!-- Floating Navigation Bar -->
@@ -23,38 +16,41 @@
         <button id="theme-toggle">🌙 Dark Mode</button>
     </nav>
 
-    <!-- Layout -->
+    <!-- Layout 2 คอลัมน์ -->
     <div class="main-grid">
-        <!-- คอลัมน์ซ้าย -->
-        <div class="info-card" style="text-align: center;">
-            <img src="karn.jpg" alt="karn picture" width="100%" style="max-width: 350px; border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-bottom: 20px;">
-            <video width="100%" controls muted style="border-radius: 17px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+        
+        <!-- คอลัมน์ซ้าย: วิดีโอแบบเต็มฝั่ง -->
+        <div class="info-card" style="padding: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000;">
+            <video width="100%" height="100%" style="object-fit: cover;" controls muted autoplay loop>
                 <source src="technic.mp4" type="video/mp4">
             </video>
         </div>
 
-        <!-- คอลัมน์ขวา -->
-        <div class="info-card">
-            <h1><strong style="font-size: 50px;">แนะนำตัวเอง</strong></h1>
+        <!-- คอลัมน์ขวา: รูปภาพ + ข้อมูลส่วนตัว -->
+        <div class="info-card" style="text-align: center;">
+            <!-- ย้ายรูปมาไว้ตรงนี้ -->
+            <img src="karn.jpg" alt="karn picture" width="180" height="180" style="border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.15); margin-bottom: 15px; object-fit: cover; border: 4px solid #ebbf61;">
             
-            <h2 style="margin-top: 0;">ชื่อ-นามสกุล</h2>
-            <p id="b1" style="margin: 10px 0;">นาย กานต์ จองอ่อง (กานต์)</p>
+            <h1 style="margin-top: 0;"><strong style="font-size: 40px;">แนะนำตัวเอง</strong></h1>
             
-            <h2>วันเกิด / อายุ</h2>
-            <p id="b1" style="margin: 10px 0;">29 ธันวาคม 2552 (16 ปี)</p>
+            <h2 style="font-size: 22px; margin-bottom: 5px;">ชื่อ-นามสกุล</h2>
+            <p style="margin: 0 0 15px 0; font-size: 18px;">นาย กานต์ จองอ่อง (กานต์)</p>
             
-            <h2>สถานศึกษาปัจจุบัน</h2>
-            <p id="b1" style="margin: 10px 0;">วิทยาลัยเทคนิคเชียงใหม่</p>
+            <h2 style="font-size: 22px; margin-bottom: 5px;">วันเกิด / อายุ</h2>
+            <p style="margin: 0 0 15px 0; font-size: 18px;">29 ธันวาคม 2552 (16 ปี)</p>
             
-            <h2>สิ่งที่ชอบ</h2>
-            <p id="b1" style="margin: 10px 0; line-height: 1.8;">
+            <h2 style="font-size: 22px; margin-bottom: 5px;">สถานศึกษาปัจจุบัน</h2>
+            <p style="margin: 0 0 15px 0; font-size: 18px;">วิทยาลัยเทคนิคเชียงใหม่</p>
+            
+            <h2 style="font-size: 22px; margin-bottom: 5px;">สิ่งที่ชอบ</h2>
+            <p style="margin: 0 0 15px 0; font-size: 18px; line-height: 1.8;">
                 🔌 ชอบต่อวงจร<br>
                 📚 ชอบหาความรู้ใหม่ๆ<br>
                 🎸 ชอบเล่นดนตรี<br>
                 🎮 ชอบเล่นเกม
             </p>
 
-            <audio controls autoplay muted style="margin-top: 20px; width: 100%;">
+            <audio controls autoplay muted style="margin-top: 15px; width: 100%;">
                 <source src="sound1.mp3" type="audio/mp3">
             </audio>
         </div>
