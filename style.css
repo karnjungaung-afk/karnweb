@@ -1,23 +1,23 @@
+/* --- โค้ดเดิมของคุณ --- */
 #b1{
     font-size: 20px;
     margin: 15px auto;
-    background-color: #ffffff; /* เปลี่ยนเป็นพื้นหลังสีขาว */
-    border: none; /* เอาเส้นขอบหนาๆ ออก */
-    border-radius: 20px; /* มนกำลังดี */
+    background-color: #ffffff;
+    border: none;
+    border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* ใส่เงานุ่มๆ */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    max-width: 400px;  /* บังคับให้กล่องกว้างไม่เกิน 600 พิกเซล (ปรับตัวเลขได้ตามชอบ) */
-    width: 90%;        /* ถ้าเปิดในมือถือ กล่องจะหดเหลือ 90% ของจอ ไม่หลุดขอบ */
+    max-width: 400px;
+    width: 90%;
 }
 #b1:hover{
-    transform: translateY(-3px); /* ลอยขึ้นตอนเมาส์ชี้ */
+    transform: translateY(-3px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 h2{
     font-size: 30px;
 }
-/* กล่องครอบตาราง */
 .schedule-container {
     max-width: 900px;
     margin: 0 auto;
@@ -26,7 +26,6 @@ h2{
     border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
-/* หัวข้อ */
 .schedule-header {
     text-align: center;
     margin-bottom: 30px;
@@ -42,14 +41,12 @@ h2{
     color: #7f8c8d;
     font-size: 14px;
 }
-/* สไตล์ของตาราง */
 table {
     width: 100%;
     border-collapse: collapse;
     overflow: hidden;
     border-radius: 8px;
 }
-/* หัวตาราง */
 th {
     background-color: #ebbf61;
     color: #ffffff;
@@ -59,30 +56,92 @@ th {
     font-size: 16px;
     letter-spacing: 0.5px;
 }
-/* แถวและเนื้อหา */
 td {
     padding: 16px;
     border-bottom: 1px solid #eeeeee;
     color: #4a5568;
     font-size: 15px;
 }
-/* สลับสีแถวให้ดูง่ายขึ้น */
 tbody tr:nth-child(even) {
     background-color: #f8fafc;
 }
-/* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ */
 tbody tr:hover {
     background-color: #edf2f7;
     transition: background-color 0.2s ease;
 }
-/* สไตล์สำหรับคอลัมน์เวลา */
 .time-col {
     font-weight: bold;
     color: #ebbf61;
     width: 20%;
 }
-/* สไตล์สำหรับคอลัมน์กิจกรรม */
 .activity-col {
     font-weight: 300;
     width: 15%;
+}
+
+/* --- ส่วนที่เพิ่มใหม่เพื่อความสวยงามและรองรับ API --- */
+
+/* 1. Dark Mode Styles (บังคับทับสีเดิมด้วย !important เมื่อเปิดโหมดมืด) */
+body.dark-mode {
+    background-color: #1e1e2f !important;
+    color: #e0e0e0 !important;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+body.dark-mode #b1, 
+body.dark-mode .schedule-container {
+    background-color: #2d2d44 !important;
+    color: #f0f0f0 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4) !important;
+}
+body.dark-mode td { color: #cccccc !important; }
+body.dark-mode .schedule-header h2, 
+body.dark-mode .schedule-header p { color: #f0f0f0 !important; }
+body.dark-mode tbody tr:nth-child(even) { background-color: #353550 !important; }
+body.dark-mode tbody tr:hover { background-color: #424260 !important; }
+
+/* 2. Scroll Animation Styles (สำหรับ API ที่ 2) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. ปุ่มและข้อความแจ้งเตือนด้านล่าง (Footer) */
+.api-footer {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(235, 191, 97, 0.2);
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #b48446;
+    text-align: center;
+    border: 2px dashed #ebbf61;
+    margin-bottom: 20px;
+}
+body.dark-mode .api-footer {
+    background-color: rgba(0,0,0,0.3);
+    color: #ebbf61;
+}
+
+/* ตกแต่งปุ่มให้ดูป๊อปอัปสวยๆ */
+.btn-cool {
+    background-color: #ebbf61;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(235, 191, 97, 0.4);
+    transition: all 0.3s ease;
+}
+.btn-cool:hover {
+    background-color: #d4a74c;
+    transform: scale(1.05);
 }
