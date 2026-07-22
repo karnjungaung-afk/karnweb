@@ -6,16 +6,29 @@
     <title>Activity Schedule</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* สไตล์สำหรับแอนิเมชัน Matrix Code ฝั่งแฮกเกอร์ */
+        /* จัดทุกอย่างให้อยู่ตรงกลางหน้าจอแบบสวยงาม */
+        .page-center-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* จัดกึ่งกลางแนวนอน */
+            justify-content: center;
+        }
+        .schedule-container, .matrix-container, .visitor-counter {
+            width: 100%;
+            box-sizing: border-box;
+        }
         .matrix-container {
             position: relative;
-            width: 100%;
             height: 450px;
             background: #0b0f19;
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border: 1px solid rgba(235, 191, 97, 0.3);
+            margin-bottom: 30px;
         }
         canvas {
             display: block;
@@ -34,6 +47,8 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             pointer-events: none;
             letter-spacing: 1px;
+            text-align: center;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -45,58 +60,63 @@
         <a href="https://www.facebook.com/share/18q1AfHFmN/" target="_blank"><img src="f1.png" alt="facebook"> Facebook</a>
     </nav>
 
-    <!-- ส่วนตารางกิจกรรม -->
-    <div class="schedule-container" style="margin-left: 20px; margin-right: 20px;">
-        <div class="schedule-header">
-            <h2>ตารางกิจกรรมใน 1 สัปดาห์</h2>
-            <p>อัปเดตล่าสุดสัปดาห์ที่แล้ว</p>
-        </div>
-
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th>วัน</th>
-                        <th>06:00 - 10:00</th>
-                        <th>10:00 - 12:00</th>
-                        <th>12:00 - 15:00</th>
-                        <th>15:00 - 18:00</th>
-                        <th>18:00 - 21:00</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td class="time-col">จันทร์</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน coding</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
-                    <tr><td class="time-col">อังคาร</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน packet tracer</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
-                    <tr><td class="time-col">พุธ</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>ซ้อมกีต้าร์</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
-                    <tr><td class="time-col">พฤหัสบดี</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน API</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
-                    <tr><td class="time-col">ศุกร์</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน configure</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
-                    <tr><td class="time-col">เสาร์</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน packet tracer</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
-                    <tr><td class="time-col">อาทิตย์</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>ซ้อมกีต้าร์</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- ห่อหุ้มเนื้อหาทั้งหมดให้อยู่กึ่งกลางหน้าจอ -->
+    <div class="page-center-wrapper">
         
-        <div style="text-align: center; margin-top: 30px;">
-            <button id="copy-btn" class="copy-btn" onclick="copyContact()">📋 คัดลอกอีเมลสำหรับติดต่องาน (Clipboard API)</button>
-        </div>
-    </div>
+        <!-- ส่วนตารางกิจกรรม -->
+        <div class="schedule-container" style="margin-bottom: 30px;">
+            <div class="schedule-header">
+                <h2>ตารางกิจกรรมใน 1 สัปดาห์</h2>
+                <p>อัปเดตล่าสุดสัปดาห์ที่แล้ว</p>
+            </div>
 
-    <!-- ส่วนแอนิเมชันรหัสเน็ตเวิร์ก/แฮกเกอร์สุดเท่ แทนอันเดิมที่ไม่ติด -->
-    <div style="max-width: 1100px; margin: 0 auto 30px auto; padding: 0 20px;">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>วัน</th>
+                            <th>06:00 - 10:00</th>
+                            <th>10:00 - 12:00</th>
+                            <th>12:00 - 15:00</th>
+                            <th>15:00 - 18:00</th>
+                            <th>18:00 - 21:00</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="time-col">จันทร์</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน coding</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
+                        <tr><td class="time-col">อังคาร</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน packet tracer</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
+                        <tr><td class="time-col">พุธ</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>ซ้อมกีต้าร์</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
+                        <tr><td class="time-col">พฤหัสบดี</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน API</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
+                        <tr><td class="time-col">ศุกร์</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน configure</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
+                        <tr><td class="time-col">เสาร์</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>เรียน packet tracer</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
+                        <tr><td class="time-col">อาทิตย์</td><td>อาบน้ำ / กินข้าว</td><td>เรียน network</td><td>ซ้อมกีต้าร์</td><td>อาบน้ำ / กินข้าว</td><td>เข้านอน</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button id="copy-btn" class="copy-btn" onclick="copyContact()">📋 คัดลอกอีเมลสำหรับติดต่องาน (Clipboard API)</button>
+            </div>
+        </div>
+
+        <!-- ส่วนแอนิเมชัน Matrix Canvas (อยู่ตรงกลางสมบูรณ์) -->
         <div class="matrix-container">
             <canvas id="matrixCanvas"></canvas>
             <div class="matrix-overlay">💻 Network Security & Coding Simulation (Interactive Canvas API)</div>
         </div>
-    </div>
 
-    <audio controls autoplay muted style="display:block; margin: 30px auto;">
-        <source src="sound1.mp3" type="audio/mp3">
-    </audio>
+        <!-- เครื่องเล่นเสียง -->
+        <audio controls autoplay muted style="display:block; margin: 10px auto 30px auto;">
+            <source src="sound1.mp3" type="audio/mp3">
+        </audio>
 
-    <div class="visitor-counter" style="margin-left: 20px; margin-right: 20px;">
-        <h3 style="margin-top:0;">📊 สถิติผู้เข้าชมเว็บไซต์ (Visitor API)</h3>
-        <img src="https://api.visitorbadge.io/api/visitors?path=karn.portfolio.activity&countColor=%23ebbf61" alt="Visitor Count">
-        <p style="font-size: 14px; margin-top: 10px;">✨ API ในหน้านี้: Clipboard API + Canvas Matrix Rain API + Visitor Badge API</p>
+        <!-- สถิติผู้เข้าชม -->
+        <div class="visitor-counter" style="margin-bottom: 40px;">
+            <h3 style="margin-top:0;">📊 สถิติผู้เข้าชมเว็บไซต์ (Visitor API)</h3>
+            <img src="https://api.visitorbadge.io/api/visitors?path=karn.portfolio.activity&countColor=%23ebbf61" alt="Visitor Count">
+            <p style="font-size: 14px; margin-top: 10px;">✨ API ในหน้านี้: Clipboard API + Canvas Matrix Rain API + Visitor Badge API</p>
+        </div>
+
     </div>
 
     <script>
@@ -104,7 +124,7 @@
 
         async function copyContact() {
             try {
-                await navigator.clipboard.writeText("karn@technic.ac.th"); 
+                await navigator.clipboard.writeText("karnjungaung@gmail.com"); 
                 const btn = document.getElementById('copy-btn');
                 btn.innerHTML = '✅ คัดลอกสำเร็จแล้ว!';
                 btn.style.backgroundColor = '#4caf50';
