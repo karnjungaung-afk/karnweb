@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activity Schedule</title>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -12,6 +14,7 @@
         .copy-btn {
             background-color: #ebbf61; color: white; border: none; padding: 15px 30px; 
             border-radius: 30px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s;
+            width: 100%; max-width: 400px;
         }
         .copy-btn:hover { background-color: #d4a74c; transform: scale(1.05); }
     </style>
@@ -24,92 +27,44 @@
         <a href="https://www.facebook.com/share/18q1AfHFmN/" target="_blank"><img src="f1.png" alt="facebook"> Facebook</a>
     </nav>
 
-    <!-- ส่วนที่ 1: ตารางเวลา -->
-    <div class="schedule-container" style="margin-bottom: 30px;">
+    <div class="schedule-container" style="margin-bottom: 30px; margin-left: 20px; margin-right: 20px;">
         <div class="schedule-header">
             <h2>ตารางกิจกรรมใน 1 สัปดาห์</h2>
             <p>อัปเดตล่าสุดสัปดาห์ที่แล้ว</p>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>วัน</th>
-                    <th>06:00 - 10:00</th>
-                    <th>10:00 - 12:00</th>
-                    <th>12:00 - 15:00</th>
-                    <th>15:00 - 18:00</th>
-                    <th>18:00 - 21:00</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="time-col">จันทร์</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เรียน network</td>
-                    <td class="activity-col">เรียน coding</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เข้านอน</td>
-                </tr>
-                <tr>
-                    <td class="time-col">อังคาร</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เรียน network</td>
-                    <td class="activity-col">เรียน packet tracer</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เข้านอน</td>
-                </tr>
-                <tr>
-                    <td class="time-col">พุธ</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เรียน network</td>
-                    <td class="activity-col">ซ้อมกีต้าร์</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เข้านอน</td>
-                </tr>
-                <tr>
-                    <td class="time-col">พฤหัสบดี</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เรียน network</td>
-                    <td class="activity-col">เรียน API</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เข้านอน</td>
-                </tr>
-                <tr>
-                    <td class="time-col">ศุกร์</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เรียน network</td>
-                    <td class="activity-col">เรียน configure</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เข้านอน</td>
-                </tr>
-                <tr>
-                    <td class="time-col">เสาร์</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เรียน network</td>
-                    <td class="activity-col">เรียน packet tracer</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เข้านอน</td>
-                </tr>
-                <tr>
-                    <td class="time-col">อาทิตย์</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เรียน network</td>
-                    <td class="activity-col">ซ้อมกีต้าร์</td>
-                    <td class="activity-col">อาบน้ำ / กินข้าว</td>
-                    <td class="activity-col">เข้านอน</td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- ครอบตารางด้วย div เพื่อให้เลื่อนซ้ายขวาบนมือถือได้ -->
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>วัน</th>
+                        <th>06:00 - 10:00</th>
+                        <th>10:00 - 12:00</th>
+                        <th>12:00 - 15:00</th>
+                        <th>15:00 - 18:00</th>
+                        <th>18:00 - 21:00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="time-col">จันทร์</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เรียน network</td><td class="activity-col">เรียน coding</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เข้านอน</td></tr>
+                    <tr><td class="time-col">อังคาร</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เรียน network</td><td class="activity-col">เรียน packet tracer</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เข้านอน</td></tr>
+                    <tr><td class="time-col">พุธ</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เรียน network</td><td class="activity-col">ซ้อมกีต้าร์</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เข้านอน</td></tr>
+                    <tr><td class="time-col">พฤหัสบดี</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เรียน network</td><td class="activity-col">เรียน API</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เข้านอน</td></tr>
+                    <tr><td class="time-col">ศุกร์</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เรียน network</td><td class="activity-col">เรียน configure</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เข้านอน</td></tr>
+                    <tr><td class="time-col">เสาร์</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เรียน network</td><td class="activity-col">เรียน packet tracer</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เข้านอน</td></tr>
+                    <tr><td class="time-col">อาทิตย์</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เรียน network</td><td class="activity-col">ซ้อมกีต้าร์</td><td class="activity-col">อาบน้ำ / กินข้าว</td><td class="activity-col">เข้านอน</td></tr>
+                </tbody>
+            </table>
+        </div>
         
         <div style="text-align: center; margin-top: 30px;">
-            <button id="copy-btn" class="copy-btn" onclick="copyContact()">📋 คัดลอกอีเมลสำหรับติดต่องาน (Clipboard API)</button>
+            <button id="copy-btn" class="copy-btn" onclick="copyContact()">📋 คัดลอกอีเมลสำหรับติดต่องาน</button>
         </div>
     </div>
 
-    <!-- ส่วนที่ 2: โมเดลโลก 3 มิติแบบโต้ตอบได้ -->
-    <div class="schedule-container" style="padding: 0; overflow: hidden; height: 500px; display: flex; align-items: center; justify-content: center; background: #000;">
-        <!-- Iframe รูปโลก 3 มิติจาก Sketchfab (รับรองว่าใช้ได้ 100% หมุนและซูมได้) -->
+    <!-- โมเดลโลก 3 มิติแบบโต้ตอบได้ -->
+    <div class="schedule-container" style="padding: 0; overflow: hidden; height: 500px; display: flex; align-items: center; justify-content: center; background: #000; margin-left: 20px; margin-right: 20px;">
         <iframe title="Earth 3D" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1bf324e9db504a75be4ef0d9f08ea5ec/embed?autostart=1&ui_theme=dark" width="100%" height="100%"></iframe>
     </div>
 
@@ -117,10 +72,10 @@
         <source src="sound1.mp3" type="audio/mp3">
     </audio>
 
-    <div class="visitor-counter">
+    <div class="visitor-counter" style="margin-left: 20px; margin-right: 20px;">
         <h3 style="margin-top:0;">📊 สถิติผู้เข้าชมเว็บไซต์ (Visitor API)</h3>
         <img src="https://api.visitorbadge.io/api/visitors?path=karn.portfolio.activity&countColor=%23ebbf61" alt="Visitor Count">
-        <p style="font-size: 14px; margin-top: 10px;">✨ API ในหน้านี้: Clipboard API + 3D Earth WebGL Iframe + Visitor Badge API</p>
+        <p style="font-size: 14px; margin-top: 10px;">✨ API ในหน้านี้: Clipboard API + 3D Earth Iframe + Visitor Badge API</p>
     </div>
 
     <script>
@@ -134,7 +89,7 @@
                 btn.style.backgroundColor = '#4caf50';
                 
                 setTimeout(() => {
-                    btn.innerHTML = '📋 คัดลอกอีเมลสำหรับติดต่องาน (Clipboard API)';
+                    btn.innerHTML = '📋 คัดลอกอีเมลสำหรับติดต่องาน';
                     btn.style.backgroundColor = '#ebbf61';
                 }, 3000);
             } catch (err) {
