@@ -4,92 +4,73 @@
     <title>แนะนำตัวเอง</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body{
+        body {
             background-color: antiquewhite;
             background-size: cover;
-            text-align: center;
             color: rgb(177, 109, 21);
-            transition: background-color 0.5s ease; /* เพิ่มความสมูท */
-        }
-        ul {
-            list-style-type: none;
-            margin-top: 0%;
-            padding-left: 0;
-            overflow: hidden;
-            border-radius: 18px;
-        }
-        li {
-            float: left;
-        }
-        li button{
-            border-radius: 18px;
-            border: 2px solid #f5c680;
-            display: block;
-            color:#b48446;
-            text-align: center;
-            padding: 18px;
-            text-decoration: none;
-            border-collapse: collapse;
-            background-color: rgb(247, 217, 179);
-        }
-        li button:hover {
-            background-color: #dfc59f;
         }
     </style>
 </head>
 <body>
-    <ul>
-        <li><button onclick="document.location='index.html'">Profile</button></li>
-        <li><button onclick="document.location='listOfSkills.html'">Skill List</button></li>
-        <li><button onclick="document.location='activitySchedule.html'">Activity</button></li>
-        <li><a href="https://www.facebook.com/share/18q1AfHFmN/" target="_blank"><img src="f1.png" alt="facebook" style="width: 90px;"></a></li>
-        <!-- เพิ่มปุ่ม Dark Mode ตรงนี้ -->
-        <li style="float: right;"><button id="theme-toggle" style="background-color: #333; color: white; border-color: #222;">🌙 Dark Mode</button></li>
-    </ul>
-    
-    <!-- แนะนำตัวเอง -->
-    <h1><strong style="font-size: 60px;">แนะนำตัวเอง</strong></h1>
-    <img src="karn.jpg" alt="karn picture" width="350" height="350" style="border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-    <p id="b1">
-        นาย กานต์ จองอ่อง (กานต์)
-    </p>
-    <h2>วันเกิด</h2>
-    <p id = "b1">
-        29 ธันวาคม 2552
-    </p>
-    <h2>อายุ</h2>
-    <p id = "b1">
-        16 ปี
-    </p>
-    <h2>สถานศึกษาปัจจุบัน</h2>
-    <p id = "b1">วิทยาลัยเทคนิคเชียงใหม่</p>
-    <video width="500" height="320" controls muted style="border-radius: 17px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-        <source src="technic.mp4" type="video/mp4">
-    </video>
-    <h2>สิ่งที่ชอบ</h2>
-    <p id="b1">
-<br>ชอบต่อวงจร
-<br>ชอบหาความรู้ใหม่ๆ
-<br>ชอบเล่นดนตรี
-<br>ชอบเล่นเกม
-    </p>
-    <audio controls autoplay muted >
-        <source src="sound1.mp3" type="audio/mp3">
-    </audio>
+    <!-- Floating Navigation Bar แบบใหม่ -->
+    <nav class="glass-nav">
+        <a href="index.html">👤 Profile</a>
+        <a href="listOfSkills.html">🎯 Skill List</a>
+        <a href="activitySchedule.html">📅 Activity</a>
+        <a href="https://www.facebook.com/share/18q1AfHFmN/" target="_blank"><img src="f1.png" alt="facebook"> Facebook</a>
+        <button id="theme-toggle">🌙 Dark Mode</button>
+    </nav>
 
-    <!-- ป้ายบอก API ที่เพิ่ม -->
-    <div class="api-footer">✨ API ที่เพิ่มในหน้านี้: Web Storage API (ระบบ Dark Mode และจดจำการตั้งค่า)</div>
+    <!-- จัด Layout แบบ 2 คอลัมน์ (ซ้าย-ขวา) -->
+    <div class="main-grid">
+        <!-- คอลัมน์ซ้าย: สื่อ (รูปและวิดีโอ) -->
+        <div class="info-card" style="text-align: center;">
+            <img src="karn.jpg" alt="karn picture" width="100%" style="max-width: 350px; border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-bottom: 20px;">
+            <video width="100%" controls muted style="border-radius: 17px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <source src="technic.mp4" type="video/mp4">
+            </video>
+        </div>
 
-    <!-- Script สำหรับทำงาน Web Storage API -->
+        <!-- คอลัมน์ขวา: ข้อมูล -->
+        <div class="info-card">
+            <h1><strong style="font-size: 50px;">แนะนำตัวเอง</strong></h1>
+            
+            <h2 style="margin-top: 0;">ชื่อ-นามสกุล</h2>
+            <p id="b1" style="margin: 10px 0;">นาย กานต์ จองอ่อง (กานต์)</p>
+            
+            <h2>วันเกิด / อายุ</h2>
+            <p id="b1" style="margin: 10px 0;">29 ธันวาคม 2552 (16 ปี)</p>
+            
+            <h2>สถานศึกษาปัจจุบัน</h2>
+            <p id="b1" style="margin: 10px 0;">วิทยาลัยเทคนิคเชียงใหม่</p>
+            
+            <h2>สิ่งที่ชอบ</h2>
+            <p id="b1" style="margin: 10px 0; line-height: 1.8;">
+                🔌 ชอบต่อวงจร<br>
+                📚 ชอบหาความรู้ใหม่ๆ<br>
+                🎸 ชอบเล่นดนตรี<br>
+                🎮 ชอบเล่นเกม
+            </p>
+
+            <audio controls autoplay muted style="margin-top: 20px; width: 100%;">
+                <source src="sound1.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+
+    <!-- API นับคนเข้าเว็บ และแจ้งเตือน API -->
+    <div class="visitor-counter">
+        <h3 style="margin-top:0;">📊 สถิติผู้เข้าชมเว็บไซต์ (Visitor API)</h3>
+        <img src="https://api.visitorbadge.io/api/visitors?path=karn.portfolio.index&countColor=%23ebbf61" alt="Visitor Count">
+        <p style="font-size: 14px; margin-top: 10px;">✨ API ในหน้านี้: Web Storage API (จำค่า Dark Mode) + Visitor Badge API</p>
+    </div>
+
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
-        // เช็คค่าที่บันทึกไว้
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
             toggleBtn.innerHTML = '☀️ Light Mode';
         }
-        
-        // เมื่อกดปุ่มสลับโหมด
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             if (document.body.classList.contains('dark-mode')) {
