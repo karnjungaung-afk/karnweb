@@ -1,87 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Skills & Careers</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body{
+        body {
             background-color: antiquewhite;
             background-size: cover;
             color: rgb(177, 109, 21);
-            transition: background-color 0.5s ease;
         }
-        li button{
-            border-radius: 18px;
-            border: 2px solid #f5c680;
-            display: block;
-            color:#b48446;
-            text-align: center;
-            padding: 18px;
-            text-decoration: none;
-            border-collapse: collapse;
-            background-color: rgb(247, 217, 179);
+        .speech-btn {
+            background-color: #ebbf61; color: white; border: none; padding: 10px 20px; 
+            border-radius: 20px; cursor: pointer; font-weight: bold; margin-bottom: 20px; width: 100%;
         }
+        .speech-btn:hover { background-color: #d4a74c; }
     </style>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul style="list-style-type: none; margin-top: 0%;padding-left: 0;overflow: hidden;border-radius: 18px;">
-    <li style="float: left;"><button onclick="document.location='index.html'">Profile</button></li>
-    <li style="float: left;"><button onclick="document.location='listOfSkills.html'">Skill List</button></li>
-    <li style="float: left;"><button onclick="document.location='activitySchedule.html'">Activity</button></li>
-    <li><a href="https://www.facebook.com/share/18q1AfHFmN/" target="_blank"><img src="f1.png" alt="facebook" style="width: 90px;"></a></li>
-    </ul>
+    <nav class="glass-nav">
+        <a href="index.html">👤 Profile</a>
+        <a href="listOfSkills.html">🎯 Skill List</a>
+        <a href="activitySchedule.html">📅 Activity</a>
+        <a href="https://www.facebook.com/share/18q1AfHFmN/" target="_blank"><img src="f1.png" alt="facebook"> Facebook</a>
+    </nav>
 
-    <!-- ใส่ class reveal เพื่อดึง API มาใช้ทำแอนิเมชัน -->
-    <div class="reveal">
-        <h2>ทักษะที่ต้องการพัฒนา</h2>
-        <ul style="font-size: 18px; line-height: 1.8;">
-            <li>การตั้งค่าและบริหารจัดการอุปกรณ์เครือข่าย (Routing & Switching / Cisco, Juniper)</li>
-            <li>ความปลอดภัยของระบบเครือข่าย (Network Security, Firewall, VPN)</li>
-            <li>ระบบคลาวด์และเครือข่ายเสมือน (Cloud Networking - AWS, Azure, GCP)</li>
-            <li>การใช้คำสั่ง Linux และการเขียนสคริปต์เพื่อควบคุมระบบอัตโนมัติ (Network Automation - Python, Ansible)</li>
-            <li>การวิเคราะห์และแก้ไขปัญหาเครือข่าย (Troubleshooting & Wireshark)</li>
-        </ul>
-        <img src="firewall.jpg" alt="firewall" width="350" height="350" style="border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
-    </div>
-    
-    <hr style="border-top: 2px dashed #ebbf61; margin: 40px 0;">
-    
-    <div class="reveal">
-        <h2>ลำดับอาชีพที่อยากทำ</h2>
-        <ol style="font-size: 18px; line-height: 1.8;">
-            <li>วิศวกรระบบเครือข่าย (Network Engineer)</li>
-            <li>วิศวกรความปลอดภัยระบบเครือข่าย (Network Security Engineer)</li>
-            <li>วิศวกรระบบคลาวด์ (Cloud Network Engineer / Cloud Architect)</li>
-            <li>ผู้เชี่ยวชาญด้านระบบเครือข่ายอัตโนมัติ (Network Automation Engineer)</li>
-            <li>ผู้บริหารจัดการระบบเครือข่าย (Network Administrator)</li>
-        </ol>
-        <img src="network_en.jpg" alt="network engineer" width="350" height="350" style="border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+    <!-- Layout -->
+    <div class="main-grid">
+        <div class="info-card" id="skills-section">
+            <h2>🛠️ ทักษะที่ต้องการพัฒนา</h2>
+            <button class="speech-btn" onclick="speakText('skills-list')">🔊 ให้อ่านทักษะให้ฟัง (Web Speech API)</button>
+            <ul id="skills-list" style="font-size: 16px; line-height: 1.8; padding-left: 20px;">
+                <li>การตั้งค่าและบริหารจัดการอุปกรณ์เครือข่าย (Routing & Switching / Cisco, Juniper)</li>
+                <li>ความปลอดภัยของระบบเครือข่าย (Network Security, Firewall, VPN)</li>
+                <li>ระบบคลาวด์และเครือข่ายเสมือน (Cloud Networking - AWS, Azure, GCP)</li>
+                <li>การใช้คำสั่ง Linux และการเขียนสคริปต์เพื่อควบคุมระบบอัตโนมัติ (Network Automation - Python, Ansible)</li>
+                <li>การวิเคราะห์และแก้ไขปัญหาเครือข่าย (Troubleshooting & Wireshark)</li>
+            </ul>
+            <img src="firewall.jpg" alt="firewall" width="100%" style="border-radius: 18px; margin-top: 15px;">
+        </div>
+
+        <div class="info-card" id="career-section">
+            <h2>💼 ลำดับอาชีพที่อยากทำ</h2>
+            <button class="speech-btn" onclick="speakText('career-list')">🔊 ให้อ่านอาชีพให้ฟัง (Web Speech API)</button>
+            <ol id="career-list" style="font-size: 16px; line-height: 1.8; padding-left: 20px;">
+                <li>วิศวกรระบบเครือข่าย (Network Engineer)</li>
+                <li>วิศวกรความปลอดภัยระบบเครือข่าย (Network Security Engineer)</li>
+                <li>วิศวกรระบบคลาวด์ (Cloud Network Engineer / Cloud Architect)</li>
+                <li>ผู้เชี่ยวชาญด้านระบบเครือข่ายอัตโนมัติ (Network Automation Engineer)</li>
+                <li>ผู้บริหารจัดการระบบเครือข่าย (Network Administrator)</li>
+            </ol>
+            <img src="network_en.jpg" alt="network engineer" width="100%" style="border-radius: 18px; margin-top: 15px;">
+        </div>
     </div>
 
-    <audio controls autoplay muted style="margin-left: 75%; margin-top: 20px;">
+    <audio controls autoplay muted style="display:block; margin: 0 auto;">
         <source src="sound1.mp3" type="audio/mp3">
     </audio>
 
-    <!-- ป้ายบอก API ที่เพิ่ม -->
-    <div class="api-footer reveal">✨ API ที่เพิ่มในหน้านี้: Intersection Observer API (เอฟเฟกต์เฟด-อิน ลอยขึ้นตอนเลื่อนจอลงมา)</div>
+    <div class="visitor-counter">
+        <h3 style="margin-top:0;">📊 สถิติผู้เข้าชมเว็บไซต์ (Visitor API)</h3>
+        <img src="https://api.visitorbadge.io/api/visitors?path=karn.portfolio.skills&countColor=%23ebbf61" alt="Visitor Count">
+        <p style="font-size: 14px; margin-top: 10px;">✨ API ในหน้านี้: Web Speech API (Text-to-Speech) + Visitor Badge API</p>
+    </div>
 
-    <!-- Script สำหรับดึงธีมและ Intersection Observer -->
     <script>
-        // คงสถานะ Dark Mode 
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
+        if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); }
+
+        function speakText(elementId) {
+            const textToRead = document.getElementById(elementId).innerText;
+            const utterance = new SpeechSynthesisUtterance(textToRead);
+            utterance.lang = 'th-TH';
+            utterance.rate = 1.0;
+            window.speechSynthesis.speak(utterance);
         }
-
-        // Intersection Observer API ทำให้องค์ประกอบค่อยๆ โผล่
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
