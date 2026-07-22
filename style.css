@@ -103,3 +103,60 @@ body.dark-mode tbody tr:hover { background-color: #2a365c !important; }
     background-color: rgba(235, 191, 97, 0.1);
     border-radius: 12px;
 }
+/* =========================================
+   ส่วนที่เพิ่มใหม่: Responsive Design (คอม, iPad, มือถือ)
+   ========================================= */
+
+/* ทำให้ตารางสามารถไถซ้าย-ขวาได้เมื่อหน้าจอเล็ก */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* ให้เลื่อนสมูทบน iOS */
+}
+
+/* สำหรับ iPad และ แท็บเล็ต (ขนาดหน้าจอไม่เกิน 1024px) */
+@media (max-width: 1024px) {
+    .main-grid {
+        gap: 20px;
+        padding: 0 15px;
+    }
+    .glass-nav {
+        width: 90%;
+        flex-wrap: wrap; /* ยอมให้ปุ่มตกลงมาบรรทัดใหม่ถ้าพื้นที่ไม่พอ */
+        justify-content: center;
+        border-radius: 20px;
+    }
+    body {
+        padding-top: 150px; /* เพิ่มพื้นที่ด้านบนเผื่อเมนูซ้อนกันหลายบรรทัด */
+    }
+}
+
+/* สำหรับ มือถือ (ขนาดหน้าจอไม่เกิน 768px) */
+@media (max-width: 768px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* บังคับให้แสดงแค่ 1 คอลัมน์ (เรียงจากบนลงล่าง) */
+    }
+    .glass-nav {
+        padding: 10px;
+        gap: 8px;
+        border-radius: 15px;
+        width: 95%;
+    }
+    .glass-nav a, .glass-nav button {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    h1 strong {
+        font-size: 40px !important; /* ลดขนาดตัวอักษรหัวข้อใหญ่ในมือถือ */
+    }
+    .info-card, .schedule-container {
+        padding: 20px 15px; /* ลดขอบให้เนื้อหามีที่อยู่มากขึ้น */
+    }
+    th, td {
+        font-size: 14px; /* ลดขนาดฟอนต์ในตาราง */
+        padding: 10px;
+    }
+    body {
+        padding-top: 130px;
+    }
+}
