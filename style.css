@@ -1,14 +1,19 @@
 /* =========================================
-   ส่วนที่เพิ่มใหม่: Layout & Navigation 
+   1. ตั้งค่าพื้นฐาน (Base Styles)
    ========================================= */
-
-/* ปรับระยะห่างด้านบนเพื่อไม่ให้โดน Nav บัง */
 body {
+    background-color: antiquewhite;
+    background-size: cover;
+    color: rgb(177, 109, 21);
+    font-family: Arial, sans-serif;
     padding-top: 100px; 
     transition: background-color 0.5s ease;
+    margin: 0;
 }
 
-/* 1. Floating Glassmorphism Navigation Bar (เมนูลอยแบบกระจก) */
+/* =========================================
+   2. Navigation (เมนูลอยแบบกระจก)
+   ========================================= */
 .glass-nav {
     position: fixed;
     top: 20px;
@@ -51,7 +56,9 @@ body {
     border-radius: 50%;
 }
 
-/* 2. Grid Layout (จัดแบบซ้าย-ขวา) */
+/* =========================================
+   3. Layout (Grid แบบซ้าย-ขวา)
+   ========================================= */
 .main-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -60,10 +67,8 @@ body {
     margin: 0 auto 40px auto;
     padding: 0 20px;
     align-items: start;
-    text-align: left; /* เปลี่ยนจากจัดกลางเป็นชิดซ้ายให้อ่านง่าย */
+    text-align: left;
 }
-
-/* กล่องการ์ดสวยๆ */
 .info-card {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
@@ -73,7 +78,68 @@ body {
     border: 1px solid rgba(255,255,255,0.5);
 }
 
-/* 3. Dark Mode Styles */
+/* =========================================
+   4. ตารางกิจกรรม (แก้ไขให้แสดงผลถูกต้อง)
+   ========================================= */
+.schedule-container {
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+.schedule-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.schedule-header h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: 600;
+}
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+}
+th {
+    background-color: #ebbf61;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 16px;
+    font-size: 16px;
+}
+td {
+    padding: 16px;
+    border-bottom: 1px solid #eeeeee;
+    color: #4a5568;
+    font-size: 15px;
+    background-color: #ffffff; /* บังคับพื้นหลังสีขาว */
+}
+tbody tr:nth-child(even) td {
+    background-color: #f8fafc; /* สลับสีแถว */
+}
+tbody tr:hover td {
+    background-color: #edf2f7;
+}
+.time-col {
+    font-weight: bold;
+    color: #ebbf61;
+}
+
+/* =========================================
+   5. Dark Mode Styles
+   ========================================= */
 body.dark-mode {
     background-color: #1a1a2e !important;
     color: #e0e0e0 !important;
@@ -90,73 +156,42 @@ body.dark-mode .info-card, body.dark-mode .schedule-container {
     border: 1px solid rgba(255,255,255,0.05);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
-body.dark-mode td { color: #cccccc !important; }
-body.dark-mode .schedule-header h2, body.dark-mode .schedule-header p { color: #f0f0f0 !important; }
-body.dark-mode tbody tr:nth-child(even) { background-color: #1f2a48 !important; }
-body.dark-mode tbody tr:hover { background-color: #2a365c !important; }
+body.dark-mode td { color: #cccccc !important; background-color: #16213e !important; }
+body.dark-mode tbody tr:nth-child(even) td { background-color: #1f2a48 !important; }
+body.dark-mode tbody tr:hover td { background-color: #2a365c !important; }
+body.dark-mode th { background-color: #d4a74c !important; }
+body.dark-mode .schedule-header h2 { color: #f0f0f0 !important; }
 
-/* 4. Visitor Badge & Footer */
+/* =========================================
+   6. Visitor Badge & Buttons
+   ========================================= */
 .visitor-counter {
     text-align: center;
-    margin: 50px 0 20px 0;
+    margin: 50px auto 20px auto;
     padding: 20px;
     background-color: rgba(235, 191, 97, 0.1);
     border-radius: 12px;
+    max-width: 600px;
 }
+.copy-btn {
+    background-color: #ebbf61; color: white; border: none; padding: 15px 30px; 
+    border-radius: 30px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s;
+}
+.copy-btn:hover { background-color: #d4a74c; transform: scale(1.05); }
+
 /* =========================================
-   ส่วนที่เพิ่มใหม่: Responsive Design (คอม, iPad, มือถือ)
+   7. Responsive Design (คอม, iPad, มือถือ)
    ========================================= */
-
-/* ทำให้ตารางสามารถไถซ้าย-ขวาได้เมื่อหน้าจอเล็ก */
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* ให้เลื่อนสมูทบน iOS */
-}
-
-/* สำหรับ iPad และ แท็บเล็ต (ขนาดหน้าจอไม่เกิน 1024px) */
 @media (max-width: 1024px) {
-    .main-grid {
-        gap: 20px;
-        padding: 0 15px;
-    }
-    .glass-nav {
-        width: 90%;
-        flex-wrap: wrap; /* ยอมให้ปุ่มตกลงมาบรรทัดใหม่ถ้าพื้นที่ไม่พอ */
-        justify-content: center;
-        border-radius: 20px;
-    }
-    body {
-        padding-top: 150px; /* เพิ่มพื้นที่ด้านบนเผื่อเมนูซ้อนกันหลายบรรทัด */
-    }
+    .main-grid { gap: 20px; padding: 0 15px; }
+    .glass-nav { width: 90%; flex-wrap: wrap; justify-content: center; border-radius: 20px; }
+    body { padding-top: 150px; }
 }
-
-/* สำหรับ มือถือ (ขนาดหน้าจอไม่เกิน 768px) */
 @media (max-width: 768px) {
-    .main-grid {
-        grid-template-columns: 1fr; /* บังคับให้แสดงแค่ 1 คอลัมน์ (เรียงจากบนลงล่าง) */
-    }
-    .glass-nav {
-        padding: 10px;
-        gap: 8px;
-        border-radius: 15px;
-        width: 95%;
-    }
-    .glass-nav a, .glass-nav button {
-        font-size: 13px;
-        padding: 8px 12px;
-    }
-    h1 strong {
-        font-size: 40px !important; /* ลดขนาดตัวอักษรหัวข้อใหญ่ในมือถือ */
-    }
-    .info-card, .schedule-container {
-        padding: 20px 15px; /* ลดขอบให้เนื้อหามีที่อยู่มากขึ้น */
-    }
-    th, td {
-        font-size: 14px; /* ลดขนาดฟอนต์ในตาราง */
-        padding: 10px;
-    }
-    body {
-        padding-top: 130px;
-    }
+    .main-grid { grid-template-columns: 1fr; }
+    .glass-nav { padding: 10px; gap: 8px; border-radius: 15px; width: 95%; }
+    .glass-nav a, .glass-nav button { font-size: 13px; padding: 8px 12px; }
+    .info-card, .schedule-container { padding: 20px 15px; }
+    th, td { font-size: 14px; padding: 10px; }
+    body { padding-top: 130px; }
 }
