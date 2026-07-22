@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แนะนำตัวเอง</title>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -12,7 +14,7 @@
     </style>
 </head>
 <body>
-    <!-- Floating Navigation Bar แบบใหม่ -->
+    <!-- Floating Navigation Bar -->
     <nav class="glass-nav">
         <a href="index.html">👤 Profile</a>
         <a href="listOfSkills.html">🎯 Skill List</a>
@@ -21,9 +23,9 @@
         <button id="theme-toggle">🌙 Dark Mode</button>
     </nav>
 
-    <!-- จัด Layout แบบ 2 คอลัมน์ (ซ้าย-ขวา) -->
+    <!-- Layout -->
     <div class="main-grid">
-        <!-- คอลัมน์ซ้าย: สื่อ (รูปและวิดีโอ) -->
+        <!-- คอลัมน์ซ้าย -->
         <div class="info-card" style="text-align: center;">
             <img src="karn.jpg" alt="karn picture" width="100%" style="max-width: 350px; border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-bottom: 20px;">
             <video width="100%" controls muted style="border-radius: 17px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
@@ -31,7 +33,7 @@
             </video>
         </div>
 
-        <!-- คอลัมน์ขวา: ข้อมูล -->
+        <!-- คอลัมน์ขวา -->
         <div class="info-card">
             <h1><strong style="font-size: 50px;">แนะนำตัวเอง</strong></h1>
             
@@ -58,11 +60,11 @@
         </div>
     </div>
 
-    <!-- API นับคนเข้าเว็บ และแจ้งเตือน API -->
+    <!-- API Visitor Badge -->
     <div class="visitor-counter">
         <h3 style="margin-top:0;">📊 สถิติผู้เข้าชมเว็บไซต์ (Visitor API)</h3>
         <img src="https://api.visitorbadge.io/api/visitors?path=karn.portfolio.index&countColor=%23ebbf61" alt="Visitor Count">
-        <p style="font-size: 14px; margin-top: 10px;">✨ API ในหน้านี้: Web Storage API (จำค่า Dark Mode) + Visitor Badge API</p>
+        <p style="font-size: 14px; margin-top: 10px;">✨ API ในหน้านี้: Web Storage API + Visitor Badge API</p>
     </div>
 
     <script>
