@@ -9,6 +9,7 @@
             background-size: cover;
             text-align: center;
             color: rgb(177, 109, 21);
+            transition: background-color 0.5s ease; /* เพิ่มความสมูท */
         }
         ul {
             list-style-type: none;
@@ -42,10 +43,13 @@
         <li><button onclick="document.location='listOfSkills.html'">Skill List</button></li>
         <li><button onclick="document.location='activitySchedule.html'">Activity</button></li>
         <li><a href="https://www.facebook.com/share/18q1AfHFmN/" target="_blank"><img src="f1.png" alt="facebook" style="width: 90px;"></a></li>
+        <!-- เพิ่มปุ่ม Dark Mode ตรงนี้ -->
+        <li style="float: right;"><button id="theme-toggle" style="background-color: #333; color: white; border-color: #222;">🌙 Dark Mode</button></li>
     </ul>
+    
     <!-- แนะนำตัวเอง -->
     <h1><strong style="font-size: 60px;">แนะนำตัวเอง</strong></h1>
-    <img src="karn.jpg" alt="karn picture" width="350" height="350" style="border-radius: 18px;">
+    <img src="karn.jpg" alt="karn picture" width="350" height="350" style="border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
     <p id="b1">
         นาย กานต์ จองอ่อง (กานต์)
     </p>
@@ -59,7 +63,7 @@
     </p>
     <h2>สถานศึกษาปัจจุบัน</h2>
     <p id = "b1">วิทยาลัยเทคนิคเชียงใหม่</p>
-    <video width="500" height="320" controls muted style="border-radius: 17px;">
+    <video width="500" height="320" controls muted style="border-radius: 17px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
         <source src="technic.mp4" type="video/mp4">
     </video>
     <h2>สิ่งที่ชอบ</h2>
@@ -72,5 +76,30 @@
     <audio controls autoplay muted >
         <source src="sound1.mp3" type="audio/mp3">
     </audio>
+
+    <!-- ป้ายบอก API ที่เพิ่ม -->
+    <div class="api-footer">✨ API ที่เพิ่มในหน้านี้: Web Storage API (ระบบ Dark Mode และจดจำการตั้งค่า)</div>
+
+    <!-- Script สำหรับทำงาน Web Storage API -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        // เช็คค่าที่บันทึกไว้
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleBtn.innerHTML = '☀️ Light Mode';
+        }
+        
+        // เมื่อกดปุ่มสลับโหมด
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.innerHTML = '☀️ Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleBtn.innerHTML = '🌙 Dark Mode';
+            }
+        });
+    </script>
 </body>
 </html>
